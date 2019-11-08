@@ -1,0 +1,24 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View All Books</title>
+</head>
+<body>
+<form>
+<table>
+<tr th:each="currentBooks : ${books}" >
+<td th:text="${currentBooks.id}" />
+ <td th:text="${currentBooks.title}" />
+ <td th:text="${currentBooks.author}" />
+ <td th:text="${currentBooks.genre}" />
+ <td th:text="${currentBooks.rating}" />
+ <td><a
+th:href="@{/edit/{id}(id=${currentBooks.id})}">Edit</a></td>
+ <td><a
+th:href="@{/delete/{id}(id=${currentBooks.id})}">Delete</a></td>
+</tr>
+</table>
+</form>
+<a href="../inputBooks">Add a new Book</a>
+</body>
+</html>
